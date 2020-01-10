@@ -19,20 +19,20 @@ public class Addition extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addition);
 
-        et1 = (EditText)findViewById(R.id.et1);
-        et2 = (EditText)findViewById(R.id.et2);
-        b = (Button)findViewById(R.id.button);
-        ans = (TextView)findViewById(R.id.tvAns);
+        //et1 = (EditText)findViewById(R.id.et1);
+        //et2 = (EditText)findViewById(R.id.et2);
+        //b = (Button)findViewById(R.id.button);
+        //ans = (TextView)findViewById(R.id.tvAns);
 
-        b.setOnClickListener(v -> {
-                int i = Integer.parseInt(et1.getText().toString());
-                int j = Integer.parseInt(et2.getText().toString());
+        //b.setOnClickListener(v -> {
+          //      int i = Integer.parseInt(et1.getText().toString());
+          //      int j = Integer.parseInt(et2.getText().toString());
 
-                int k = i + j;
-                ans.setText("Ans is:" + k);
+          //      int k = i + j;
+          //      ans.setText("Ans is:" + k);
 
-            }
-        );
+            //}
+        //);
 
     }
 
