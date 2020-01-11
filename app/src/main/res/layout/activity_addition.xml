@@ -89,11 +89,12 @@
             android:textColor="@color/colorPrimaryDark"
             android:hint="Password"
             />
+
         <Button
+            android:id="@+id/btn_signup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Create Account"
             android:layout_marginTop="24sp"
-            />
+            android:text="Create Account" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
