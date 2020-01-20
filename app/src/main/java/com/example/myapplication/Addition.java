@@ -1,7 +1,11 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -18,10 +22,36 @@ public class Addition extends AppCompatActivity {
     // Button b;
     // TextView ans;
 
-    // @Override
-    // protected void onCreate(Bundle savedInstanceState) {
-    //     super.onCreate(savedInstanceState);
-    //     setContentView(R.layout.activity_addition);
+    Button bt_notif;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_addition);
+
+    bt_notif = findViewById(R.id.btn_notif);
+    bt_notif.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            String message = "This is a sample notif";
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(
+                    Addition.this
+            )
+                    .setSmallIcon(R.drawable.ic_message)
+                    .setContentTitle(message)
+                    .setAutoCancel(true);
+            Intent intent = new Intent(Addition.this,
+                    NotificationActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.putExtra("message",message);
+            PendingIntent pi = PendingIntent.getActivity(Addition.this,0,intent,PendingIntent.FLAG_UPDATE_CURRENT);
+            builder.setContentIntent(pi);
+            NotificationManager nm = (NotificationManager)getSystemService(
+                    NOTIFICATION_SERVICE
+            );
+            nm.notify(0,builder.build());
+        }
+    });
 
     //     EditText etName,etEmail,etPass;
     //     RadioButton r1,r2;
